@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Apple= function (weight) {
+        this.weight = 10;
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.decreaseWeight = function () {
+            if (!this.isEmpty()){
+                this.weight = this.weight - 1
+            } else alert("It empty")
+        };
+        this.isEmpty = function () {
+            if (this.weight === 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+    };
+    let Human =function (name,gender,weight) {
+        this.name=name;
+        this.gender=gender;
+        this.weight=weight;
+        this.greeting=function () {
+            document.write("moi ban an tao")
+
+        };
+        this.getName=function () {
+            return this.name
+
+        };
+        this.getWeight=function () {
+            return this.weight
+
+
+        };
+        this.getGender=function () {
+            return this.gender
+
+        };
+        this.isMale=function () {
+            if (this.gender==='male'){
+                return true;
+            }
+            else itreturn false;
+
+        };
+        this.getWeightApple=function(apple){
+            return apple.getWeight();
+        };
+        this.eating=function (apple) {
+            apple.decreaseWeight();
+            if (! apple.isEmpty()) {
+                this.weight += 1;
+            }
+                alert(' Apple rest: ' + apple.getWeight() + 'g')
+        };
+
+    };
+    let apple = new Apple();
+    let adam = new Human('Adam',40, 'male');
+    adam.greeting();
+    let a = adam.getWeightApple(apple);
+    document.write(a);
+    for (let i=0;i<10;i++) {
+        adam.eating(apple);
+        document.write('<br> apple: ' + adam.getWeightApple(apple) + ' adam: ' + adam.getWeight());
+    }
+</script>
+</body>
+</html>
